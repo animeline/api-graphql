@@ -1,2 +1,2 @@
-# animeline-api
+# api
 Animeline website api, created using GraphQL.
