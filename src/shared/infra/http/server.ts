@@ -1,27 +1,33 @@
-import { ApolloServer } from "apollo-server";
-import { GraphQLSchema, GraphQLObjectType, GraphQLString } from "graphql";
+import express, { Express } from 'express';
+import cors from 'cors';
 
-const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: "RootQueryType",
-    fields: {
-      hello: {
-        type: GraphQLString,
-        resolve() {
-          return "world";
-        },
-      },
-    },
-  }),
-});
+import { LoggerUtils } from '@shared/utils';
 
-function serverConnection() {
-  const server = new ApolloServer({
-    schema,
-    playground: true,
-  });
+import GraphQL from './graphql';
+import rateLimiter from './middlewares/rateLimiter';
 
-  server.listen({ port: 3003 }).then(() => console.log("Server started"));
+class ExpressServer {
+  public app: Express;
+
+  private graphql: GraphQL;
+
+  constructor() {
+    this.app = express();
+    this.graphql = new GraphQL();
+  }
+
+  async connect(): Promise<void> {
+    this.app.use(rateLimiter);
+    this.app.use(cors());
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
+
+    this.app.listen(3003, () =>
+      this.graphql
+        .connect(this.app)
+        .then(() => LoggerUtils.log('Server started', { tags: ['HTTP'] })),
+    );
+  }
 }
 
-serverConnection();
+export default ExpressServer;
