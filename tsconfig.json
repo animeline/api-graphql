@@ -3,6 +3,11 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"]
+    },
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
@@ -31,7 +36,6 @@
     "target": "ES2019",
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
-  "exclude": ["**/*.js", "build", "node_modules"],
-  "extends": "./tsconfig.paths.json",
+  "exclude": ["**/*.js", "dist", "node_modules"],
   "include": ["src/**/*"]
 }
