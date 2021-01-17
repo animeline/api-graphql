@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Jest folders
+coverage
+
+# TypeORM file
+ormconfig.json
