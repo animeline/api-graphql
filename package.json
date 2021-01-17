@@ -36,12 +36,12 @@
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {
-    "@types/async": "^3.2.5",
-    "@types/ioredis": "^4.17.11",
+    "@types/async": "3.2.5",
+    "@types/ioredis": "4.17.11",
     "@types/jest": "26.0.20",
     "@types/jsonwebtoken": "8.5.0",
     "@types/node": "14.14.21",
-    "@types/redis": "^2.8.28",
+    "@types/redis": "2.8.28",
     "@zerollup/ts-transform-paths": "1.7.18",
     "cross-env": "7.0.3",
     "dotenv": "8.2.0",
