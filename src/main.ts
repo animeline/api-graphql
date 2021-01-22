@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import 'dotenv/config';
 
 import { eachSeries } from 'async';
 
@@ -8,6 +7,8 @@ import '@shared/container/providers';
 import { Redis } from '@shared/infra/database/redis';
 import { TypeORM } from '@shared/infra/database/typeorm';
 import { ApolloServer } from '@shared/infra/http/graphql';
+
+require('dotenv').config();
 
 const app = new ApolloServer();
 const database = new TypeORM();
