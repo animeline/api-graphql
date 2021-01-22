@@ -1,9 +1,14 @@
-import { Resolver, Query, Arg } from 'type-graphql';
+import { Resolver, Query, Args } from 'type-graphql';
 import { container } from 'tsyringe';
 
-import AnimeService from '@modules/animes/services/AnimeService';
+import {
+  GetLatestAnimeResponseDTO,
+  GetLatestAnimeUseCase,
+} from '@modules/animes/useCases/GetLatestAnime';
 
-import LatestAnimesSchema from '../schemas/LatestAnimes';
+import { PaginationArgs } from '../args/PaginationArgs';
+
+import { LatestAnimesSchema } from '../schemas/LatestAnimesSchema';
 
 @Resolver()
 class LastAnimesResolver {
@@ -11,13 +16,13 @@ class LastAnimesResolver {
     name: 'lastAnimes',
     description: 'Fetch the data of the last released anime.',
   })
-  findByLatest(
-    @Arg('page', { defaultValue: 1 }) page: number,
-    @Arg('limit', { defaultValue: 12 }) limit: number,
-  ) {    
-    const animeService = container.resolve(AnimeService);
+  async findByLatest(
+    @Args() paginationArgs: PaginationArgs,
+  ): Promise<GetLatestAnimeResponseDTO> {
+    const useCase = container.resolve(GetLatestAnimeUseCase);
+    const animes = await useCase.execute(paginationArgs);
 
-    return animeService.findAll(page, limit, { latest: '' });
+    return animes;
   }
 }
 
