@@ -1,3 +1,3 @@
 import { IAnimesData, ILastAnimes } from '@shared/types';
 
-export interface GetLatestAnimeResponseDTO extends IAnimesData<ILastAnimes[]> {}
+export type GetLatestAnimeResponseDTO = IAnimesData<ILastAnimes[]>;

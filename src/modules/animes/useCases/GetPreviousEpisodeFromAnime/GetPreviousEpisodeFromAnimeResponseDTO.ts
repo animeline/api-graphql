@@ -1,4 +1,3 @@
 import { IAnimePreviousEpisode } from '@shared/types';
 
-export interface GetPreviousEpisodeFromAnimeResponseDTO
-  extends IAnimePreviousEpisode {}
+export type GetPreviousEpisodeFromAnimeResponseDTO = IAnimePreviousEpisode;

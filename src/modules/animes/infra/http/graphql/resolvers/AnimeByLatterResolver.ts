@@ -1,5 +1,5 @@
-import { Resolver, Query, Arg, Args } from 'type-graphql';
 import { container } from 'tsyringe';
+import { Resolver, Query, Arg, Args } from 'type-graphql';
 
 import {
   GetAnimeByLetterResponseDTO,
@@ -7,14 +7,13 @@ import {
 } from '@modules/animes/useCases/GetAnimeByLetter';
 
 import { PaginationArgs } from '../args/PaginationArgs';
-
 import { AnimeByLetterSchema } from '../schemas/AnimeByLetterSchema';
 
 @Resolver()
 class AnimeByLatterResolver {
   @Query(() => AnimeByLetterSchema, {
-    name: "animeByLetter",
-    description: "Search anime data by letter.",
+    name: 'animeByLetter',
+    description: 'Search anime data by letter.',
   })
   async findByLetter(
     @Arg('letter') letter: string,

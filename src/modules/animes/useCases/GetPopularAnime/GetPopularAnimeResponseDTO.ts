@@ -1,4 +1,3 @@
 import { IAnimesData, IPopularAnime } from '@shared/types';
 
-export interface GetPopularAnimeResponseDTO
-  extends IAnimesData<IPopularAnime[]> {}
+export type GetPopularAnimeResponseDTO = IAnimesData<IPopularAnime[]>;

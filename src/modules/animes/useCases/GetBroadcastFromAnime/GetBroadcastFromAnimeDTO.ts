@@ -1,3 +1,3 @@
-export interface GetBroadcastFromAnimeDTO {  
+export interface GetBroadcastFromAnimeDTO {
   id: string;
-} 
+}

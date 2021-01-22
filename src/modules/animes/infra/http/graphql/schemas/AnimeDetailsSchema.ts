@@ -1,4 +1,4 @@
-import { ObjectType, Field } from "type-graphql";
+import { ObjectType, Field } from 'type-graphql';
 
 import { PaginationSchema } from './associations/PaginationSchema';
 
@@ -6,25 +6,25 @@ import { PaginationSchema } from './associations/PaginationSchema';
 class EpisodeData {
   @Field()
   video_id!: string;
-  
+
   @Field()
   category_id!: string;
-  
+
   @Field()
   title!: string;
 }
 
 @ObjectType()
-class AllEpisodesData extends PaginationSchema {  
+class AllEpisodesData extends PaginationSchema {
   @Field(() => [EpisodeData])
   data!: EpisodeData[];
 }
 
 @ObjectType()
-export class AnimeDetailsSchema {  
+export class AnimeDetailsSchema {
   @Field()
   id!: string;
-  
+
   @Field()
   category_name!: string;
 
@@ -45,7 +45,7 @@ export class AnimeDetailsSchema {
 
   @Field()
   off!: string;
-  
+
   @Field(() => AllEpisodesData)
   episodes!: AllEpisodesData;
 }

@@ -1,5 +1,5 @@
-import { Resolver, Query, Args } from 'type-graphql';
 import { container } from 'tsyringe';
+import { Resolver, Query, Args } from 'type-graphql';
 
 import {
   GetLatestAnimeResponseDTO,
@@ -7,7 +7,6 @@ import {
 } from '@modules/animes/useCases/GetLatestAnime';
 
 import { PaginationArgs } from '../args/PaginationArgs';
-
 import { LatestAnimesSchema } from '../schemas/LatestAnimesSchema';
 
 @Resolver()

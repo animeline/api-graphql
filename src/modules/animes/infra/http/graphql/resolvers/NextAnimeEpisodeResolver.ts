@@ -1,5 +1,5 @@
-import { Resolver, Query, Arg } from 'type-graphql';
 import { container } from 'tsyringe';
+import { Resolver, Query, Arg } from 'type-graphql';
 
 import {
   GetNextEpisodeFromAnimeResponseDTO,

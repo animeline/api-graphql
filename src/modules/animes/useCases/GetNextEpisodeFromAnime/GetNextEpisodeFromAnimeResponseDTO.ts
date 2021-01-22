@@ -1,3 +1,3 @@
 import { IAnimeNextEpisode } from '@shared/types';
 
-export interface GetNextEpisodeFromAnimeResponseDTO extends IAnimeNextEpisode {}
+export type GetNextEpisodeFromAnimeResponseDTO = IAnimeNextEpisode;

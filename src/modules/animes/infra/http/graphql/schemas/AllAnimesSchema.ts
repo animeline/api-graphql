@@ -1,4 +1,4 @@
-import { ObjectType, Field } from "type-graphql";
+import { ObjectType, Field } from 'type-graphql';
 
 import { PaginationSchema } from './associations/PaginationSchema';
 
@@ -15,7 +15,7 @@ class AllAnimeData {
 }
 
 @ObjectType()
-export class AllAnimesSchema extends PaginationSchema {    
+export class AllAnimesSchema extends PaginationSchema {
   @Field(() => [AllAnimeData])
   data!: AllAnimeData[];
 }

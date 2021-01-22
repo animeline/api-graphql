@@ -1,6 +1,7 @@
-import fetch from 'node-fetch';
-import { URLSearchParams } from 'url';
 import paginate from 'jw-paginate';
+import { URLSearchParams } from 'url';
+
+import { IAnimeService } from '@modules/animes/repositories/implementations/IAnimeService';
 
 import {
   ANIME_CATEGORY_NOT_FOUND,
@@ -21,8 +22,6 @@ import {
   IAnimeNextEpisode,
   IAnimePreviousEpisode,
 } from '@shared/types';
-
-import { IAnimeService } from '@modules/animes/repositories/implementations/IAnimeService';
 
 const BASE_URL = process.env.ANIME_API_URL;
 const CND_URL = process.env.ANIME_CND_URL;
@@ -246,7 +245,7 @@ export class AnimeService implements IAnimeService {
   public async request<RequestType>(query = {}): Promise<RequestType> {
     const params = new URLSearchParams(query);
 
-    return fetch(BASE_URL + ENDPOINT_API + `?${params.toString()}`)
+    return fetch(`${BASE_URL + ENDPOINT_API}?${params.toString()}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText);

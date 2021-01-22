@@ -1,5 +1,5 @@
-import { Resolver, Query, Arg, Args } from 'type-graphql';
 import { container } from 'tsyringe';
+import { Resolver, Query, Arg, Args } from 'type-graphql';
 
 import {
   GetAnimeByIdResponseDTO,
@@ -7,7 +7,6 @@ import {
 } from '@modules/animes/useCases/GetAnimeById';
 
 import { PaginationArgs } from '../args/PaginationArgs';
-
 import { AnimeDetailsSchema } from '../schemas/AnimeDetailsSchema';
 
 @Resolver()

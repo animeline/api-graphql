@@ -1,4 +1,4 @@
-export interface GetNextEpisodeFromAnimeDTO {  
+export interface GetNextEpisodeFromAnimeDTO {
   currentEpisode: string;
-  anime: string;  
-} 
+  anime: string;
+}

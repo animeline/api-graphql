@@ -3,4 +3,4 @@ export interface GetAnimeByIdDTO {
   currentPage: number;
   pageSize: number;
   maxPages: number;
-} 
+}

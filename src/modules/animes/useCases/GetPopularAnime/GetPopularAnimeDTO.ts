@@ -1,5 +1,5 @@
-export interface GetPopularAnimeDTO {  
+export interface GetPopularAnimeDTO {
   currentPage: number;
   pageSize: number;
   maxPages: number;
-} 
+}

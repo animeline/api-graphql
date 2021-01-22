@@ -1,4 +1,3 @@
 import { IAnimesData, IAnimeEpisodes } from '@shared/types';
 
-export interface GetAllEpisodesFromAnimeResponseDTO
-  extends IAnimesData<IAnimeEpisodes[]> {}
+export type GetAllEpisodesFromAnimeResponseDTO = IAnimesData<IAnimeEpisodes[]>;

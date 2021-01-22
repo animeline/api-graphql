@@ -1,4 +1,3 @@
 import { IAnimesData, ISearchAnime } from '@shared/types';
 
-export interface GetAnimeByNameResponseDTO
-  extends IAnimesData<ISearchAnime[]> {}
+export type GetAnimeByNameResponseDTO = IAnimesData<ISearchAnime[]>;
