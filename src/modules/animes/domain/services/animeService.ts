@@ -1,4 +1,5 @@
 import paginate from 'jw-paginate';
+import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 
 import { IAnimeService } from '@modules/animes/repositories/implementations/IAnimeService';

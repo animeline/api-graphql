@@ -32,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "jw-paginate": "^1.0.4",
     "merge-graphql-schemas": "^1.7.8",
+    "node-fetch": "^2.6.1",
     "nodemailer": "^6.4.17",
     "pg": "^8.5.1",
     "rate-limiter-flexible": "^2.2.1",
