@@ -5,12 +5,19 @@ import { eachSeries } from 'async';
 
 import '@shared/container/providers';
 
-import Server from '@shared/infra/http/server';
-import * as database from '@shared/infra/database/typeorm';
+import { Redis } from '@shared/infra/database/redis';
+import { TypeORM } from '@shared/infra/database/typeorm';
+import { ApolloServer } from '@shared/infra/http/graphql';
 
-const server = new Server();
+const app = new ApolloServer();
+const database = new TypeORM();
+const cache = new Redis();
 
-const iterableCollection = [() => server.connect(), () => database.connect()];
+const iterableCollection = [
+  () => app.connect(),
+  () => database.connect(),
+  () => cache.connect(),
+];
 
 async function main(): Promise<void> {
   await eachSeries(iterableCollection, async run => run());
