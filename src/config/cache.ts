@@ -18,4 +18,4 @@ const cacheConfig = {
   },
 } as ICacheConfig;
 
-export default cacheConfig;
+export { cacheConfig };

@@ -2,4 +2,4 @@ const authConfig = {
   secret: '',
 };
 
-export default authConfig;
+export { authConfig };
