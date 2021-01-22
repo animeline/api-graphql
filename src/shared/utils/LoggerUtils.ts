@@ -9,7 +9,7 @@ interface LogOptions {
   bg?: string;
 }
 
-class LoggerUtils {
+export class LoggerUtils {
   static log(
     ctx: string,
     { tags = [], color = 'green', bg = 'bgGreen' }: LogOptions,
@@ -52,5 +52,3 @@ class LoggerUtils {
     );
   }
 }
-
-export default LoggerUtils;

@@ -2,7 +2,7 @@ import { join } from 'path';
 
 const baseUrl = join(__dirname, '..', '..');
 
-class FileUtils {
+export class FileUtils {
   static getPath(...paths: string[]): string {
     return join(...paths);
   }
@@ -10,6 +10,4 @@ class FileUtils {
   static getRootPath(...paths: string[]): string {
     return join(baseUrl, ...paths);
   }
-}
-
-export default FileUtils;
+};
