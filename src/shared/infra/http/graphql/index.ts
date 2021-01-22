@@ -1,14 +1,15 @@
-import { ApolloServer } from 'apollo-server-express';
-import { Application } from 'express';
-import { buildSchema } from 'type-graphql';
+import {
+  ApolloServer as Apollo,
+  ApolloError,
+  CorsOptions,
+} from 'apollo-server';
 import { fileLoader } from 'merge-graphql-schemas';
+import { buildSchema } from 'type-graphql';
 
-import { FileUtils } from '@shared/utils';
+import { FileUtils, LoggerUtils } from '@shared/utils';
 
-class GraphqlServer {
-  public server: ApolloServer;
-
-  async connect(app: Application): Promise<void> {
+export class ApolloServer {
+  async connect(): Promise<void> {
     const resolversArray: any = fileLoader(
       FileUtils.getRootPath(
         'modules',
@@ -17,7 +18,7 @@ class GraphqlServer {
         'http',
         'graphql',
         'resolvers',
-        '*.ts',
+        process.env.NODE_ENV === 'development' ? '*.ts' : '*.js',
       ),
     );
 
@@ -25,13 +26,34 @@ class GraphqlServer {
       resolvers: resolversArray,
     });
 
-    this.server = new ApolloServer({
+    const cors: CorsOptions = {
+      credentials: true,
+      origin: (requestOrigin, callback) => {
+        if (process.env.NODE_ENV === 'development') {
+          callback(null, true);
+        } else if (
+          Array(process.env.WHITELIST).indexOf(String(requestOrigin)) !== -1
+        ) {
+          callback(null, true);
+        } else {
+          callback(new ApolloError('Not allowed by CORS'));
+        }
+      },
+    };
+
+    const apolloServer = new Apollo({
       schema,
+      context: ({ req, res }) => ({
+        req,
+        res,
+        token: req.headers.authorization,
+      }),
+      cors,
       playground: true,
     });
 
-    return this.server.applyMiddleware({ app, path: '/' });
+    return apolloServer
+      .listen({ port: process.env.PORT })
+      .then(() => LoggerUtils.log('Server started.', { tags: ['HTTP'] }));
   }
 }
-
-export default GraphqlServer;
