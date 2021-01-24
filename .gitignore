@@ -109,3 +109,6 @@ coverage/*
 
 # TypeORM file
 ormconfig.json
+
+# Backup files
+backup
