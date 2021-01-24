@@ -33,10 +33,10 @@ export class ApolloServer {
       origin: (requestOrigin, callback) => {
         if (process.env.NODE_ENV === 'development') {
           callback(null, true);
-        } else if (Array(serverConfig.whitelist).length <= 0) {
+        } else if (Array(serverConfig.whitelist).length === 0) {
           callback(null, true);
         } else if (
-          Array(serverConfig.whitelist).indexOf(String(requestOrigin)) !== -1
+          Array(serverConfig.whitelist).indexOf(requestOrigin) !== -1
         ) {
           callback(null, true);
         } else {
