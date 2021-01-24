@@ -26,6 +26,7 @@ module.exports = {
 
     'prettier/prettier': 'error',
     'class-methods-use-this': 'off',
+    'consistent-return': 'off',
     'max-classes-per-file': 'off',
 
     'no-underscore-dangle': 'off',

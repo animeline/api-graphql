@@ -1,6 +1,6 @@
 import IoRedis from 'ioredis';
 
-import { cacheConfig } from '@config/cache';
+import { cacheConfig } from '@config';
 
 import { LoggerUtils } from '@shared/utils';
 

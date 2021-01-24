@@ -2,6 +2,8 @@ import paginate from 'jw-paginate';
 import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 
+import { apiConfig } from '@config';
+
 import { IAnimeService } from '@modules/animes/repositories/implementations/IAnimeService';
 
 import {
@@ -24,8 +26,8 @@ import {
   IAnimePreviousEpisode,
 } from '@shared/types';
 
-const BASE_URL = process.env.ANIME_API_URL;
-const CND_URL = process.env.ANIME_CND_URL;
+const BASE_URL = apiConfig.api;
+const CND_URL = apiConfig.cdn;
 const ENDPOINT_API = '/api-animesbr-10.php';
 
 export class AnimeService implements IAnimeService {

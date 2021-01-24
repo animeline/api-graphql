@@ -1,12 +1,14 @@
-require('dotenv').config();
+const { databaseConfig } = require('./dist/config');
+
+const { host, port, username, password, database } = databaseConfig.typeorm;
 
 module.exports = {
   type: 'postgres',
-  host: process.env.TYPEORM_HOST,
-  port: process.env.TYPEORM_PORT,
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
+  host,
+  port,
+  username,
+  password,
+  database,
   entities: ['src/modules/**/infra/database/typeorm/entities/*.ts'],
   migrations: ['src/shared/infra/database/typeorm/migrations/*.ts'],
   cli: {
