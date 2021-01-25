@@ -10,7 +10,7 @@
     "prebuild": "yarn clean",
     "build": "ttsc",
     "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
+    "test": "cross-env NODE_ENV=testing jest --detectOpenHandles",
     "test:watch": "yarn test --watchAll",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
