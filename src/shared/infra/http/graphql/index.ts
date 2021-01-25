@@ -8,10 +8,10 @@ import { buildSchema } from 'type-graphql';
 
 import { serverConfig } from '@config';
 
-import { FileUtils, LoggerUtils } from '@shared/utils';
+import { FileUtils } from '@shared/utils';
 
 export class ApolloServer {
-  async connect(): Promise<void> {
+  async connect(): Promise<Apollo> {
     const resolversArray: any = fileLoader(
       FileUtils.getRootPath(
         'modules',
@@ -20,7 +20,7 @@ export class ApolloServer {
         'http',
         'graphql',
         'resolvers',
-        process.env.NODE_ENV === 'development' ? '*.ts' : '*.js',
+        process.env.NODE_ENV === 'production' ? '*.js' : '*.ts',
       ),
     );
 
@@ -31,12 +31,13 @@ export class ApolloServer {
     const cors: CorsOptions = {
       credentials: true,
       origin: (requestOrigin, callback) => {
-        if (process.env.NODE_ENV === 'development') {
-          callback(null, true);
-        } else if (Array(serverConfig.whitelist).length === 0) {
+        if (
+          process.env.NODE_ENV === 'development' ||
+          process.env.NODE_ENV === 'testing'
+        ) {
           callback(null, true);
         } else if (
-          Array(serverConfig.whitelist).indexOf(requestOrigin) !== -1
+          serverConfig.whitelist.indexOf(String(requestOrigin)) !== -1
         ) {
           callback(null, true);
         } else {
@@ -47,17 +48,12 @@ export class ApolloServer {
 
     const apolloServer = new Apollo({
       schema,
-      context: ({ req, res }) => ({
-        req,
-        res,
-        token: req.headers.authorization,
-      }),
       cors,
       playground: true,
     });
 
-    return apolloServer
-      .listen({ port: serverConfig.port })
-      .then(() => LoggerUtils.log('Server started.', { tags: ['HTTP'] }));
+    apolloServer.setGraphQLPath('/');
+
+    return apolloServer;
   }
 }

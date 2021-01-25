@@ -7,14 +7,14 @@ import '@shared/container/providers';
 
 import { Redis } from '@shared/infra/database/redis';
 import { TypeORM } from '@shared/infra/database/typeorm';
-import { ApolloServer } from '@shared/infra/http/graphql';
+import { Server } from '@shared/infra/http/server';
 
-const app = new ApolloServer();
+const server = new Server();
 const database = new TypeORM();
 const cache = new Redis();
 
 const iterableCollection = [
-  () => app.connect(),
+  () => server.connect(),
   () => database.connect(),
   () => cache.connect(),
 ];
