@@ -5,12 +5,6 @@ import { URLSearchParams } from 'url';
 import { apiConfig } from '@config';
 
 import { IAnimeService } from '@modules/animes/repositories/implementations/IAnimeService';
-
-import {
-  ANIME_CATEGORY_NOT_FOUND,
-  ANIME_NOT_FOUND,
-  DATA_NOT_FOUND,
-} from '@shared/lib/graphql/error-codes';
 import {
   IAnimesData,
   IAllAnimes,
@@ -24,7 +18,13 @@ import {
   IAnimeBroadcast,
   IAnimeNextEpisode,
   IAnimePreviousEpisode,
-} from '@shared/types';
+} from '@modules/animes/types';
+
+import {
+  ANIME_CATEGORY_NOT_FOUND,
+  ANIME_NOT_FOUND,
+  DATA_NOT_FOUND,
+} from '@shared/lib/graphql/error-codes';
 
 const BASE_URL = apiConfig.api;
 const CND_URL = apiConfig.cdn;
