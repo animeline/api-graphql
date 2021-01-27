@@ -1,12 +1,3 @@
-import { RedisOptions } from 'ioredis';
-
-interface ICacheConfig {
-  driver: 'redis';
-  config: {
-    redis: RedisOptions;
-  };
-}
-
 // GraphQL Server
 export const serverConfig = {
   port: process.env.PORT,
@@ -34,17 +25,34 @@ export const cacheConfig = {
       password: process.env.REDIS_PASS || undefined,
     },
   },
-} as ICacheConfig;
+};
 
 // JWT
 export const authConfig = {
-  secret: process.env.JWT_SECRET,
+  jwt: {
+    secret: process.env.JWT_SECRET || 'default',
+    expiresIn: '1d',
+  },
 };
 
 // Mail
 export const mailConfig = {
-  user: process.env.MAIL_USER,
-  password: process.env.MAIL_PASS,
+  driver: process.env.MAIL_DRIVER || 'gmail',
+  auth: {
+    user: process.env.MAIL_EMAIL,
+    pass: process.env.MAIL_PASSWORD,
+  },
+  defaults: {
+    from: {
+      name: 'Zev',
+      email: 'hello@zevdvlpr.ml',
+    },
+  },
+};
+
+// Upload
+export const uploadConfig = {
+  driver: 'imgur',
 };
 
 // Api
