@@ -36,6 +36,7 @@ module.exports = {
     'no-return-await': 'off',
     'no-useless-constructor': 'off',
     'no-return-assign': 'off',
+    'import/no-cycle': 'off',
 
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
