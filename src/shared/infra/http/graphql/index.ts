@@ -4,15 +4,20 @@ import {
   CorsOptions,
 } from 'apollo-server';
 import { fileLoader } from 'merge-graphql-schemas';
+import redis from 'redis';
 import { buildSchema } from 'type-graphql';
 
 import { serverConfig } from '@config';
 
+import { AuthenticationAssurance } from '@modules/users/infra/http/middlewares/AuthenticationAssurance';
+
 import { FileUtils } from '@shared/utils';
+
+import { RateLimiter } from '../middlewares/RateLimiter';
 
 export class ApolloServer {
   async connect(): Promise<Apollo> {
-    const resolversArray: any = fileLoader(
+    const resolvers: any = fileLoader(
       FileUtils.getRootPath(
         'modules',
         '**',
@@ -25,7 +30,9 @@ export class ApolloServer {
     );
 
     const schema = await buildSchema({
-      resolvers: resolversArray,
+      resolvers,
+      authChecker: AuthenticationAssurance,
+      globalMiddlewares: [RateLimiter],
     });
 
     const cors: CorsOptions = {
@@ -37,6 +44,7 @@ export class ApolloServer {
         ) {
           callback(null, true);
         } else if (
+          process.env.NODE_ENV === 'production' &&
           serverConfig.whitelist.indexOf(String(requestOrigin)) !== -1
         ) {
           callback(null, true);
@@ -49,6 +57,17 @@ export class ApolloServer {
     const apolloServer = new Apollo({
       schema,
       cors,
+      context: ({ req, res }) => ({
+        redis: redis.createClient({
+          host: process.env.REDIS_HOST,
+          port: Number(process.env.REDIS_PORT),
+          password: process.env.REDIS_PASS || undefined,
+        }),
+        url: `${req.protocol}://${req.get('host')}`,
+        token: req.headers.authorization,
+        req,
+        res,
+      }),
       playground: true,
     });
 
