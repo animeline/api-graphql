@@ -3,7 +3,7 @@ import 'reflect-metadata';
 
 import { eachSeries } from 'async';
 
-import '@shared/container/providers';
+import '@shared/container';
 
 import { Redis } from '@shared/infra/database/redis';
 import { TypeORM } from '@shared/infra/database/typeorm';
