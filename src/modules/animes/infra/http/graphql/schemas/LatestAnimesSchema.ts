@@ -4,16 +4,16 @@ import { PaginationSchema } from './associations/PaginationSchema';
 
 @ObjectType()
 class LatestData {
-  @Field()
+  @Field(() => String)
   video_id!: string;
 
-  @Field()
+  @Field(() => String)
   category_id!: string;
 
-  @Field()
+  @Field(() => String)
   title!: string;
 
-  @Field()
+  @Field(() => String)
   category_image!: string;
 }
 

@@ -2,18 +2,18 @@ import { ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
 export class AnimeBroadcastSchema {
-  @Field()
+  @Field(() => String)
   video_id!: string;
 
-  @Field()
+  @Field(() => String)
   category_id!: string;
 
-  @Field()
+  @Field(() => String)
   location!: string;
 
-  @Field()
+  @Field(() => String)
   locationsd!: string;
 
-  @Field()
+  @Field(() => String)
   locationhd!: string;
 }

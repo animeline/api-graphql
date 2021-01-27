@@ -4,13 +4,13 @@ import { PaginationSchema } from './associations/PaginationSchema';
 
 @ObjectType()
 class EpisodeData {
-  @Field()
+  @Field(() => String)
   video_id!: string;
 
-  @Field()
+  @Field(() => String)
   category_id!: string;
 
-  @Field()
+  @Field(() => String)
   title!: string;
 }
 
@@ -22,28 +22,28 @@ class AllEpisodesData extends PaginationSchema {
 
 @ObjectType()
 export class AnimeDetailsSchema {
-  @Field()
+  @Field(() => String)
   id!: string;
 
-  @Field()
+  @Field(() => String)
   category_name!: string;
 
   @Field({ nullable: true })
   category_image!: string;
 
-  @Field()
+  @Field(() => String)
   category_description!: string;
 
-  @Field()
+  @Field(() => String)
   category_genres!: string;
 
-  @Field()
+  @Field(() => String)
   ano!: string;
 
-  @Field()
+  @Field(() => String)
   count!: string;
 
-  @Field()
+  @Field(() => String)
   off!: string;
 
   @Field(() => AllEpisodesData)

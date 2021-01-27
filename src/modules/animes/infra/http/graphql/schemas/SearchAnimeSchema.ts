@@ -4,13 +4,13 @@ import { PaginationSchema } from './associations/PaginationSchema';
 
 @ObjectType()
 class SearchAnimeData {
-  @Field()
+  @Field(() => String)
   id!: string;
 
-  @Field()
+  @Field(() => String)
   category_name!: string;
 
-  @Field()
+  @Field(() => String)
   category_image!: string;
 }
 
