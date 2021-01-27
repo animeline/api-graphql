@@ -21,6 +21,19 @@
   "config": {
     "commitizen": {
       "path": "cz-emoji"
+    },
+    "types": [
+      {
+        "emoji": "⭕",
+        "code": ":o:",
+        "description": "Change in git file",
+        "name": "git"
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "dependencies": {
@@ -36,6 +49,7 @@
     "express": "^4.17.1",
     "graphql": "^15.4.0",
     "handlebars": "^4.7.6",
+    "husky": "^4.3.8",
     "ioredis": "^4.19.4",
     "jsonwebtoken": "^8.5.1",
     "jw-paginate": "^1.0.4",
