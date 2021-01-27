@@ -1,12 +1,13 @@
-import IoRedis from 'ioredis';
-
-import { cacheConfig } from '@config';
+import RedisClient from 'ioredis';
 
 import { LoggerUtils } from '@shared/utils';
 
 export class Redis {
   connect(): void {
-    const client = new IoRedis(cacheConfig.config.redis);
+    const client = new RedisClient(
+      Number(process.env.REDIS_PORT),
+      process.env.REDIS_HOST,
+    );
 
     client.on('connect', () =>
       LoggerUtils.log('Connection established.', { tags: ['Redis'] }),
