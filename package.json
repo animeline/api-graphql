@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --transpile-only --clear --ignore-watch {node_modules,__tests__} src/main.ts",
+    "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --transpile-only --clear --ignore-watch node_modules src/main.ts",
     "start": "cross-env NODE_ENV=production node dist/main.js",
     "prebuild": "yarn clean",
     "build": "ttsc",
@@ -15,7 +15,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
   },
   "dependencies": {
     "apollo-server": "^2.19.2",
@@ -27,6 +33,7 @@
     "class-validator": "^0.13.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "graphql": "^15.4.0",
     "handlebars": "^4.7.6",
     "ioredis": "^4.19.4",
@@ -39,9 +46,11 @@
     "rate-limiter-flexible": "^2.2.1",
     "redis": "^3.0.2",
     "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.1.1",
     "tsyringe": "^4.4.0",
     "type-graphql": "^1.1.1",
-    "typeorm": "^0.2.30"
+    "typeorm": "^0.2.30",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/async": "3.2.5",
@@ -53,6 +62,7 @@
     "@types/node": "14.14.21",
     "@types/nodemailer": "6.4.0",
     "@types/redis": "2.8.28",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "4.14.0",
     "@typescript-eslint/parser": "4.14.0",
     "@zerollup/ts-transform-paths": "1.7.18",
@@ -68,7 +78,6 @@
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
     "ts-jest": "26.4.4",
-    "ts-node-dev": "1.1.1",
     "tsconfig-paths": "3.9.0",
     "ttypescript": "1.5.12",
     "typescript": "4.1.3"
