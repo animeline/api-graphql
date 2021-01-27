@@ -11,7 +11,7 @@ import {
   IAnimeBroadcast,
   IAnimeNextEpisode,
   IAnimePreviousEpisode,
-} from '@shared/types';
+} from '@modules/animes/types';
 
 export interface IAnimeService {
   findAll(
