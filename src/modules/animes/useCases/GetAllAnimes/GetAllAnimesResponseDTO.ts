@@ -1,3 +1,3 @@
-import { IAnimesData, IAllAnimes } from '@shared/types';
+import { IAnimesData, IAllAnimes } from '@modules/animes/types';
 
 export type GetAllAnimesResponseDTO = IAnimesData<IAllAnimes[]>;

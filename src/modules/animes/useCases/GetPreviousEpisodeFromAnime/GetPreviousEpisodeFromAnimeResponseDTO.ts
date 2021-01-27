@@ -1,3 +1,3 @@
-import { IAnimePreviousEpisode } from '@shared/types';
+import { IAnimePreviousEpisode } from '@modules/animes/types';
 
 export type GetPreviousEpisodeFromAnimeResponseDTO = IAnimePreviousEpisode;

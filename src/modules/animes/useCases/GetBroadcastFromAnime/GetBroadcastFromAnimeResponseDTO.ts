@@ -1,3 +1,3 @@
-import { IAnimeBroadcast } from '@shared/types';
+import { IAnimeBroadcast } from '@modules/animes/types';
 
 export type GetBroadcastFromAnimeResponseDTO = IAnimeBroadcast;

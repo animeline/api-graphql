@@ -1,3 +1,3 @@
-import { IAnimesData, IAnimeByCategory } from '@shared/types';
+import { IAnimesData, IAnimeByCategory } from '@modules/animes/types';
 
 export type GetAnimeByCategoryResponseDTO = IAnimesData<IAnimeByCategory[]>;

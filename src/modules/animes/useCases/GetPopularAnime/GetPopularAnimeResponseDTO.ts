@@ -1,3 +1,3 @@
-import { IAnimesData, IPopularAnime } from '@shared/types';
+import { IAnimesData, IPopularAnime } from '@modules/animes/types';
 
 export type GetPopularAnimeResponseDTO = IAnimesData<IPopularAnime[]>;
