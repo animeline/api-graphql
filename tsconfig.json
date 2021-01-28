@@ -19,12 +19,7 @@
       "@modules/*": ["modules/*"],
       "@config": ["config/index"],
       "@shared/*": ["shared/*"]
-    },
-    "plugins": [
-      {
-        "transform": "@zerollup/ts-transform-paths"
-      }
-    ]
+    }
   },
   "exclude": ["**/*.js", "dist", "node_modules"],
   "include": ["src/**/*"]
