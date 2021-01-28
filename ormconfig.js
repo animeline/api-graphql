@@ -1,4 +1,4 @@
-const { databaseConfig } = require('./dist/config');
+const { databaseConfig } = require('./src/config');
 
 const { host, port, username, password, database } = databaseConfig.typeorm;
 

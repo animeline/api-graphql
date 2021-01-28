@@ -1,4 +1,3 @@
-import { classToClass } from 'class-transformer';
 import { container } from 'tsyringe';
 import { Arg, Mutation, Resolver } from 'type-graphql';
 
@@ -23,7 +22,7 @@ export class AuthenticateUserResolver {
     const { user, token } = await controller.handler({ email, password });
 
     return {
-      user: classToClass(user),
+      user,
       token,
     };
   }

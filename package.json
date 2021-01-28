@@ -8,32 +8,18 @@
     "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --transpile-only --clear --ignore-watch node_modules src/main.ts",
     "start": "cross-env NODE_ENV=production node dist/main.js",
     "prebuild": "yarn clean",
-    "build": "ttsc",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "cross-env NODE_ENV=testing jest --detectOpenHandles",
     "test:watch": "yarn test --watchAll",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "commit": "cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-emoji"
-    },
-    "types": [
-      {
-        "emoji": "⭕",
-        "code": ":o:",
-        "description": "Change in git file",
-        "name": "git"
-      }
-    ]
+    "prettier:fix": "prettier --write ."    
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "dependencies": {
@@ -42,7 +28,6 @@
     "async": "^3.2.0",
     "bcryptjs": "^2.4.3",
     "chalk": "^4.1.0",
-    "class-transformer": "^0.3.2",
     "class-validator": "^0.13.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
@@ -67,6 +52,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@commitlint/cli": "^11.0.0",
     "@types/async": "3.2.5",
     "@types/bcryptjs": "2.4.2",
     "@types/dotenv": "8.2.0",
@@ -79,7 +71,9 @@
     "@types/uuid": "8.3.0",
     "@typescript-eslint/eslint-plugin": "4.14.1",
     "@typescript-eslint/parser": "4.14.1",
-    "@zerollup/ts-transform-paths": "1.7.18",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-parameter-decorator": "^1.0.16",
+    "babel-plugin-transform-typescript-metadata": "^0.3.1",
     "cross-env": "7.0.3",
     "eslint": "7.18.0",
     "eslint-config-airbnb-base": "14.2.1",
@@ -93,7 +87,6 @@
     "rimraf": "3.0.2",
     "ts-jest": "26.4.4",
     "tsconfig-paths": "3.9.0",
-    "ttypescript": "1.5.12",
     "typescript": "4.1.3"
   }
 }
