@@ -35,7 +35,7 @@
   dependencies:
     xss "^1.0.6"
 
-"@babel/cli@^7.12.10":
+"@babel/cli@7.12.10":
   version "7.12.10"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.10.tgz#67a1015b1cd505bde1696196febf910c4c339a48"
   integrity sha512-+y4ZnePpvWs1fc/LhZRTHkTesbXkyBYuOB+5CyodZqrEuETXi3zOVfpAQIdgC3lXbHLTDG9dQosxR9BhvLKDLQ==
@@ -64,7 +64,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.12.7.tgz#9329b4782a7d6bbd7eef57e11addf91ee3ef1e41"
   integrity sha512-YaxPMGs/XIWtYqrdEOZOCPsVWfEoriXopnsz3/i7apYPXQ3698UFhS6dVT1KN5qOsWmVgw/FOrmQgpRaZayGsw==
 
-"@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.7.5":
+"@babel/core@7.12.10", "@babel/core@^7.1.0", "@babel/core@^7.7.5":
   version "7.12.10"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.10.tgz#b79a2e1b9f70ed3d84bbfb6d8c4ef825f606bccd"
   integrity sha512-eTAlQKq65zHfkHZV0sIVODCPGVgoo1HdBlbSLi9CqOzuZanMv2ihzY+4paiKr1mH+XmYESMAmJ/dpZ68eN6d8w==
@@ -318,7 +318,7 @@
     "@babel/helper-create-class-features-plugin" "^7.12.1"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-proposal-decorators@^7.12.12":
+"@babel/plugin-proposal-decorators@7.12.12":
   version "7.12.12"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.12.12.tgz#067a6d3d6ca86d54cf56bb183239199c20daeafe"
   integrity sha512-fhkE9lJYpw2mjHelBpM2zCbaA11aov2GJs7q4cFaXNrWx0H3bW58H9Esy2rdtYOghFBEYUDRIpvlgi+ZD+AvvQ==
@@ -787,7 +787,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.12.1"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/preset-env@^7.12.11":
+"@babel/preset-env@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.12.11.tgz#55d5f7981487365c93dbbc84507b1c7215e857f9"
   integrity sha512-j8Tb+KKIXKYlDBQyIOy4BLxzv1NUOwlHfZ74rvW+Z0Gp4/cI2IMDPBWAgWceGcE7aep9oL/0K9mlzlMGxA8yNw==
@@ -870,7 +870,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-typescript@^7.12.7":
+"@babel/preset-typescript@7.12.7":
   version "7.12.7"
   resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.12.7.tgz#fc7df8199d6aae747896f1e6c61fc872056632a3"
   integrity sha512-nOoIqIqBmHBSEgBXWR4Dv/XBehtIFcw9PqZw6rFYuKrzsZmOQm3PR5siLBnKZFEsDb03IegG8nSjU/iXXXYRmw==
@@ -932,7 +932,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@commitlint/cli@^11.0.0":
+"@commitlint/cli@11.0.0":
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-11.0.0.tgz#698199bc52afed50aa28169237758fa14a67b5d3"
   integrity sha512-YWZWg1DuqqO5Zjh7vUOeSX76vm0FFyz4y0cpGMFhrhvUi5unc4IVfCXZ6337R9zxuBtmveiRuuhQqnRRer+13g==
@@ -2394,7 +2394,7 @@ babel-plugin-jest-hoist@^26.6.2:
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
 
-babel-plugin-module-resolver@^4.1.0:
+babel-plugin-module-resolver@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-module-resolver/-/babel-plugin-module-resolver-4.1.0.tgz#22a4f32f7441727ec1fbf4967b863e1e3e9f33e2"
   integrity sha512-MlX10UDheRr3lb3P0WcaIdtCSRlxdQsB1sBqL7W0raF070bGl1HQQq5K3T2vf2XAYie+ww+5AKC/WrkjRO2knA==
@@ -2405,12 +2405,12 @@ babel-plugin-module-resolver@^4.1.0:
     reselect "^4.0.0"
     resolve "^1.13.1"
 
-babel-plugin-parameter-decorator@^1.0.16:
+babel-plugin-parameter-decorator@1.0.16:
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/babel-plugin-parameter-decorator/-/babel-plugin-parameter-decorator-1.0.16.tgz#1c889c3a1f3bbf03801fcbc2e95b8bae7468df3f"
   integrity sha512-yUT2WPTUg1JaPmRGRSF557m1HJ9vdFQInRWOkiOyO5a9HhqlXffJu+fQ2xd5+qU/35ICMrrk9eWKsHCairKA9w==
 
-babel-plugin-transform-typescript-metadata@^0.3.1:
+babel-plugin-transform-typescript-metadata@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-typescript-metadata/-/babel-plugin-transform-typescript-metadata-0.3.1.tgz#d86599b7139131ba5e917f5f568d0c824a5cdfc3"
   integrity sha512-thOuACZReULfLy7vh2o3/joYkkRerMKLBDmXy3ImCnkNUnxBmNw0uVa05JhhX0slluaEkio6OIFa7zPgaJdk6g==
