@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer';
 import { container } from 'tsyringe';
 import { Resolver, Mutation, Arg } from 'type-graphql';
 
@@ -19,8 +20,9 @@ export class CreateUserResolver {
     @Arg('password') password: string,
   ): Promise<CreateUserResponseDTO> {
     const controller = container.resolve(CreateUserController);
+    const user = await controller.handler({ name, email, password });
 
-    return await controller.handler({ name, email, password });
+    return classToClass(user);
   }
 }
 

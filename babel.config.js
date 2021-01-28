@@ -22,6 +22,7 @@ module.exports = {
       },
     ],
     'babel-plugin-transform-typescript-metadata',
+    'babel-plugin-parameter-decorator',
     [
       '@babel/plugin-proposal-decorators',
       {
@@ -34,7 +35,6 @@ module.exports = {
         loose: true,
       },
     ],
-    'babel-plugin-parameter-decorator',
   ],
   ignore: ['**/*.spec.ts'],
 };

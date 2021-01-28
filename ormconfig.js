@@ -1,6 +1,8 @@
-const { databaseConfig } = require('./src/config');
+const { databaseConfig } = require('./dist/config');
 
 const { host, port, username, password, database } = databaseConfig.typeorm;
+
+const getFolder = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
 
 module.exports = {
   type: 'postgres',
@@ -9,9 +11,9 @@ module.exports = {
   username,
   password,
   database,
-  entities: ['src/modules/**/infra/database/typeorm/entities/*.ts'],
-  migrations: ['src/shared/infra/database/typeorm/migrations/*.ts'],
+  entities: [`${getFolder}/modules/**/infra/database/typeorm/entities/*.ts`],
+  migrations: [`${getFolder}/shared/infra/database/typeorm/migrations/*.ts`],
   cli: {
-    migrationsDir: 'src/shared/infra/database/typeorm/migrations',
+    migrationsDir: `${getFolder}/shared/infra/database/typeorm/migrations`,
   },
 };
