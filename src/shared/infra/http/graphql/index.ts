@@ -7,7 +7,7 @@ import { fileLoader } from 'merge-graphql-schemas';
 import redis from 'redis';
 import { buildSchema } from 'type-graphql';
 
-import { serverConfig } from '@config';
+import { serverConfig, cacheConfig } from '@config';
 
 import { AuthenticationAssurance } from '@modules/users/infra/http/middlewares/AuthenticationAssurance';
 
@@ -57,17 +57,17 @@ export class ApolloServer {
     const apolloServer = new Apollo({
       schema,
       cors,
-      context: ({ req, res }) => ({
-        redis: redis.createClient({
-          host: process.env.REDIS_HOST,
-          port: Number(process.env.REDIS_PORT),
-          password: process.env.REDIS_PASS || undefined,
-        }),
-        url: `${req.protocol}://${req.get('host')}`,
-        token: req.headers.authorization,
-        req,
-        res,
-      }),
+      context: ({ req, res }) => {
+        return {
+          redis: redis.createClient(
+            cacheConfig.config.redis as redis.ClientOpts,
+          ),
+          url: `${req.protocol}://${req.get('host')}`,
+          token: req.headers.authorization,
+          req,
+          res,
+        };
+      },
       playground: true,
     });
 

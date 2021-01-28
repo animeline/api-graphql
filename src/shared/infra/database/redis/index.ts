@@ -1,12 +1,13 @@
 import RedisClient from 'ioredis';
 
+import { cacheConfig } from '@config';
+
 import { LoggerUtils } from '@shared/utils';
 
 export class Redis {
   connect(): void {
     const client = new RedisClient(
-      Number(process.env.REDIS_PORT),
-      process.env.REDIS_HOST,
+      cacheConfig.config.redis as RedisClient.RedisOptions,
     );
 
     client.on('connect', () =>
