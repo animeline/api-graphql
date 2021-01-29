@@ -1,7 +1,7 @@
-// GraphQL Server
+// GraphQL
 export const serverConfig = {
   port: process.env.PORT,
-  whitelist: process.env.WHITELIST,
+  whitelist: ['http://localhost:3000'],
 };
 
 // TypeORM
@@ -44,8 +44,8 @@ export const mailConfig = {
   },
   defaults: {
     from: {
-      name: 'Zev',
-      email: 'hello@zevdvlpr.ml',
+      name: 'Animeline',
+      email: 'no-reply@animeline.ml',
     },
   },
 };
