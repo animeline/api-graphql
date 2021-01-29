@@ -1,8 +1,23 @@
-const { databaseConfig } = require('./dist/config');
+/* eslint-disable import/no-dynamic-require */
+
+require('dotenv').config();
+
+const { readdirSync } = require('fs');
+const { join, resolve } = require('path');
+
+const dirName = __dirname;
+const isProduction = process.env.NODE_ENV === 'production';
+
+const configFolder = isProduction ? 'dist' : 'src';
+const configFormatFile = isProduction ? '.js' : '.ts';
+
+const configPath = join(dirName, configFolder, 'config');
+const configFile = readdirSync(configPath)[0];
+const configFullPath = resolve(configPath, configFile);
+
+const { databaseConfig } = require(configFullPath);
 
 const { host, port, username, password, database } = databaseConfig.typeorm;
-
-const getFolder = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
 
 module.exports = {
   type: 'postgres',
@@ -11,9 +26,13 @@ module.exports = {
   username,
   password,
   database,
-  entities: [`${getFolder}/modules/**/infra/database/typeorm/entities/*.ts`],
-  migrations: [`${getFolder}/shared/infra/database/typeorm/migrations/*.ts`],
+  entities: [
+    `${configFolder}/modules/**/infra/database/typeorm/entities/*${configFormatFile}`,
+  ],
+  migrations: [
+    `${configFolder}/shared/infra/database/typeorm/migrations/*${configFormatFile}`,
+  ],
   cli: {
-    migrationsDir: `${getFolder}/shared/infra/database/typeorm/migrations`,
+    migrationsDir: `${configFolder}/shared/infra/database/typeorm/migrations`,
   },
 };
