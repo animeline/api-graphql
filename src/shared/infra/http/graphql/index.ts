@@ -13,7 +13,7 @@ import { AuthenticationAssurance } from '@modules/users/infra/http/middlewares/A
 
 import { FileUtils } from '@shared/utils';
 
-import { RateLimiter } from '../middlewares/RateLimiter';
+// import { RateLimiter } from '../middlewares/RateLimiter';
 
 export class ApolloServer {
   async connect(): Promise<Apollo> {
@@ -32,7 +32,7 @@ export class ApolloServer {
     const schema = await buildSchema({
       resolvers,
       authChecker: AuthenticationAssurance,
-      globalMiddlewares: [RateLimiter],
+      globalMiddlewares: [],
     });
 
     const cors: CorsOptions = {
