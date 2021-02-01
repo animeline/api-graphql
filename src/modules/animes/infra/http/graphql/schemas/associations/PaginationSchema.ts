@@ -3,6 +3,9 @@ import { ObjectType, Field, Int } from 'type-graphql';
 @ObjectType()
 export class PaginationSchema {
   @Field(() => Int)
+  totalItems!: number;
+
+  @Field(() => Int)
   currentPage!: number;
 
   @Field(() => Int)
