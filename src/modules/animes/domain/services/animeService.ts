@@ -46,12 +46,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
@@ -70,12 +71,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
@@ -94,12 +96,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
@@ -121,12 +124,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
@@ -146,12 +150,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
@@ -171,12 +176,13 @@ export class AnimeService implements IAnimeService {
 
     return {
       ...pager,
-      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => ({
-        category_image: anime.category_image
+      data: data.slice(pager.startIndex, pager.endIndex + 1).map(anime => {
+        anime.category_image = anime.category_image
           ? `${CND_URL}/img/${anime.category_image}`
-          : null,
-        ...anime,
-      })),
+          : null;
+
+        return anime;
+      }),
     };
   }
 
