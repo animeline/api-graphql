@@ -41,7 +41,7 @@
     "merge-graphql-schemas": "^1.7.8",
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.4.17",
-    "pg": "^8.5.1",
+    "pg": "^8.6.0",
     "rate-limiter-flexible": "^2.2.1",
     "redis": "^3.0.2",
     "reflect-metadata": "^0.1.13",
